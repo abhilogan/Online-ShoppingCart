@@ -29,6 +29,12 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.mvc.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
 
 
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
