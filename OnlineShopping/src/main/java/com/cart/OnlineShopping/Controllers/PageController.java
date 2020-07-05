@@ -8,11 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class PageController {
 
 	
+	
 	@RequestMapping(value = {"/" , "/home" , "/index"})
 	public ModelAndView index()
 	{
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting", "hello saloni ...... how are you feeling ?");
+		mv.addObject("greeting", "hello world..");
 		
 		return mv;
 	}
