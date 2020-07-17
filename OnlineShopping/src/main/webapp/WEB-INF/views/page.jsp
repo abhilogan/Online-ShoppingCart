@@ -30,6 +30,7 @@
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
+<!-- Theme CSS should be mentioned after core CSS only otherwise it will not work because it will override min css-->
 <!-- Bootstrap readable css -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
 
@@ -61,6 +62,10 @@
 			<!-- Load only when user click contact -->
 			<c:if test="${userClickContact == true}">
 				<%@include file="contact.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
+				<%@include file="listProducts.jsp"%>
 			</c:if>
 		</div>
 
