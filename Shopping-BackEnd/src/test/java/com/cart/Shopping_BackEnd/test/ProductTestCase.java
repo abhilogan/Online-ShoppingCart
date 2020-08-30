@@ -56,17 +56,20 @@ public class ProductTestCase {
 	 * }
 	 */
 
-	/*
-	 * @Test public void testAddProduct() { product = new Product();
-	 * 
-	 * product.setName("Oppo Selfie S53"); product.setBrand("Oppo");
-	 * product.setDescription("This is some description for oppo mobile phones!");
-	 * product.setUnitPrice(25000); product.setActive(true);
-	 * product.setCategoryId(3); product.setSupplierId(3);
-	 * 
-	 * assertEquals("Something went wrong while inserting a new product!",
-	 * true,productDAO.add(product)); }
-	 */
+	@Test
+	public void testAddProduct() {
+		product = new Product();
+
+		product.setName("Oppo Selfie S53");
+		product.setBrand("Oppo");
+		product.setDescription("This is some description for oppo mobile phones!");
+		product.setUnitPrice(25000);
+		product.setActive(true);
+		product.setCategoryId(3);
+		product.setSupplierId(3);
+
+		assertEquals("Something went wrong while inserting a new product!", true, productDAO.add(product));
+	}
 
 	@Test
 	public void testlistActiveProducts() {

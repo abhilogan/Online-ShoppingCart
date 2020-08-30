@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
 
 	<!-- Breadcrumb -->
@@ -82,7 +83,7 @@
 			</c:choose>
 
 			<a href="${contextRoot}/show/all/products" class="btn btn-primary">
-				<span class="glyphicon glyphicon-step-backward">Back 
+				<span class="glyphicon glyphicon-step-backward">Back </span>
 			</a>
 
 		</div>

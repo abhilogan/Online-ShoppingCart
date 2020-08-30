@@ -36,7 +36,6 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public boolean add(Product product) {
-		// TODO Auto-generated method stub
 		try {
 			sessionFactory.getCurrentSession().persist(product);
 			return true;
@@ -48,7 +47,6 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public boolean update(Product product) {
-		// TODO Auto-generated method stub
 		try {
 			sessionFactory.getCurrentSession().update(product);
 			return true;
@@ -60,7 +58,6 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public boolean delete(Product product) {
-		// TODO Auto-generated method stub
 		try {
 			product.setActive(false);
 
@@ -92,7 +89,6 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<Product> getLatestActiveProducts(int count) {
-		// TODO Auto-generated method stub
 		return sessionFactory.getCurrentSession().createQuery("FROM Product WHERE active =:active ORDER BY id", Product.class)
 				.setParameter("active", true)
 				.setFirstResult(0)
