@@ -19,7 +19,7 @@
 	<view-state id="personal" view="flows/register/signup-personal" model="user">
 	<transition on="billing" to="validate"></transition>
 	<on-exit>
-		<evaluate expression="registerHandler.addUser(flowScope.registerModel,user)" />
+		<evaluate expression="registerHandler.addUser(flowScope.registerModel,user)" > </evaluate>
 	</on-exit>
 	</view-state>
 	
