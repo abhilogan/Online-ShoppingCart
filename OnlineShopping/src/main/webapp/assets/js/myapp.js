@@ -442,7 +442,7 @@ $(function() {
 					
 					size : 'medium',
 					title: 'Error',
-					message:'Product count should be minimum 1 and maximun 10!'
+					message:'Product count should be minimum 1 and maximun 10!!'
 					
 				});
 			}
