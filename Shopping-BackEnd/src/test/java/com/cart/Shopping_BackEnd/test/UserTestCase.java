@@ -200,8 +200,8 @@ public class UserTestCase {
 	{
 		user = userDAO.getByEmail("av@gmail.com");
 		
-		assertEquals("Failed to fetch the list of address and the size does not match", 2, userDAO.listShippingAddress(user).size());
+		assertEquals("Failed to fetch the list of address and the size does not match", 2, userDAO.listShippingAddress(user.getId()).size());
 		
-		assertEquals("Failed to fetch the list of address and the size does not match", "Indore", userDAO.getBillingAddress(user).getCity());
+		assertEquals("Failed to fetch the list of address and the size does not match", "Indore", userDAO.getBillingAddress(user.getId()).getCity());
 	}
 }

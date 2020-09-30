@@ -51,8 +51,8 @@
 
 						<div class="form-group row">
 
-							<label class="control-label col-md-4 font-weight-bold" for="brand">Enter
-								Brand Name</label>
+							<label class="control-label col-md-4 font-weight-bold"
+								for="brand">Enter Brand Name</label>
 							<div class="col-md-8">
 								<sf:input type="text" path="brand" id="brand"
 									placeholder="Brand Name" class="form-control" />
@@ -76,8 +76,8 @@
 
 						<div class="form-group row">
 
-							<label class="control-label col-md-4 font-weight-bold" for="unitPrice">Enter
-								Unit Price</label>
+							<label class="control-label col-md-4 font-weight-bold"
+								for="unitPrice">Enter Unit Price</label>
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice" id="unitPrice"
 									placeholder="Unit Price In &#8377" class="form-control" />
@@ -171,49 +171,51 @@
 
 		<div class="col-12">
 
-			<div style="overflow: auto">
+			<div class="container-fluid">
 
-				<!-- Products table for Admin -->
-				<table id="adminProductsTable"
-					class="table table-striped table-bordered">
+				<div class="table-responsive">
 
-					<thead>
+					<!-- Products table for Admin -->
+					<table id="adminProductsTable"
+						class="table table-striped table-bordered">
 
-						<tr>
+						<thead>
 
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
+							<tr>
 
-						</tr>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
 
-					</thead>
+							</tr>
+
+						</thead>
 
 
-					<tfoot>
+						<tfoot>
 
-						<tr>
+							<tr>
 
-							<th>Id</th>
-							<th>&#160;</th>
-							<th>Name</th>
-							<th>Brand</th>
-							<th>Quantity</th>
-							<th>Unit Price</th>
-							<th>Active</th>
-							<th>Edit</th>
+								<th>Id</th>
+								<th>&#160;</th>
+								<th>Name</th>
+								<th>Brand</th>
+								<th>Quantity</th>
+								<th>Unit Price</th>
+								<th>Active</th>
+								<th>Edit</th>
 
-						</tr>
+							</tr>
 
-					</tfoot>
+						</tfoot>
 
-				</table>
-
+					</table>
+				</div>
 			</div>
 
 		</div>
@@ -265,8 +267,8 @@
 						<div class="form-group row">
 
 							<div class="col-md-8 offset-md-4">
-								<input type="submit" name="submit" id="submit" value="Add Category"
-									class="btn btn-primary">
+								<input type="submit" name="submit" id="submit"
+									value="Add Category" class="btn btn-primary">
 							</div>
 
 						</div>

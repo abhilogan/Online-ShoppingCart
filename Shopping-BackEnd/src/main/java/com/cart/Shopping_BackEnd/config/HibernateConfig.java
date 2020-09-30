@@ -6,9 +6,11 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -17,14 +19,24 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //because we put our entity class here
 @ComponentScan(basePackages = {"com.cart.Shopping_BackEnd.dto"})
 @EnableTransactionManagement
+@PropertySource(value = {"classpath:hibernate.properties"})
 public class HibernateConfig {
 
 	//Change the below Configuration ass per requirement..
-	private final static String DATABASE_URL = "jdbc:h2:tcp://localhost/~/onlineshopping";
-	private final static String DATABASE_DRIVER = "org.h2.Driver";
-	private final static String DATABASE_DIALECT = "org.hibernate.dialect.H2Dialect";
-	private final static String DATABASE_USERNAME = "sa";
-	private final static String DATABASE_PASSWORD = "";
+	@Value("${jdbc.url}")
+	private String DATABASE_URL ;
+	
+	@Value("${jdbc.driver}")
+	private String DATABASE_DRIVER ;
+	
+	@Value("${jdbc.dialect}")
+	private String DATABASE_DIALECT ;
+	
+	@Value("${jdbc.username}")
+	private String DATABASE_USERNAME ;
+	
+	@Value("${jdbc.password}")
+	private String DATABASE_PASSWORD;
 	
 	// dataSource bean will be available
 		@Bean("dataSource")

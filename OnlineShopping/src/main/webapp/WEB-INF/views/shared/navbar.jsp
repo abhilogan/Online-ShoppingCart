@@ -1,3 +1,5 @@
+<%@taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 	<div class="container">
 		<a class="navbar-brand" href="${contextRoot}/home">Online Shopping</a>
@@ -22,19 +24,71 @@
 				<li id="contact" class="nav-item"><a class="nav-link"
 					href="${contextRoot}/contact">Contact</a></li>
 
+
+				<security:authorize access="hasAuthority('ADMIN')">
 				<li id="manageProducts" class="nav-item"><a class="nav-link"
 					href="${contextRoot}/manage/products">Manage Products</a></li>
+					
+					</security:authorize>
 			</ul>
 
 			<ul class="navbar-nav ml-auto navbar-right">
+			
+				   <security:authorize access="isAnonymous()">
 
 				<li id="register" class="nav-item"><a class="nav-link"
 					href="${contextRoot}/register">Sign Up</a></li>
 
 				<li id="login" class="nav-item"><a class="nav-link"
 					href="${contextRoot}/login">Login</a></li>
+					
+					</security:authorize>
+
+
+					<security:authorize access="isAuthenticated()">
+				<li class="nav-item dropdown show" id="cartUser">
+					<a class="nav-link dropdown-toggle" 
+						data-toggle="dropdown"
+						href="javascript:void(0)" 
+						id="dropdownMenu1"> 
+						
+						${userModel.fullName}
+						<span class="caret"></span>
+						
+						</a>
+						
+						<ul class="dropdown-menu">
+						
+						
+						<security:authorize access="hasAuthority('USER')">
+							<li>
+							
+							<a class="dropdown-item" href="${contextRoot}/cart/show">
+								<span class="glyphicon glyphicon-shopping-cart"></span>
+								<span class="badge">${userModel.cart.cartLines}</span>
+								- &#8377; ${userModel.cart.grandTotal}
+							</a>
+							
+							</li>
+							
+							<li class="dropdown-divider" role="seprator"></li>
+						</security:authorize>
+						
+						
+						<li>
+						<a class="dropdown-item" href="${contextRoot}/perform-logout">Logout</a>
+						</li>
+						
+						</ul>
+						
+						</li>
+						</security:authorize>
 
 			</ul>
 		</div>
 	</div>
 </nav>
+
+<script>
+window.userRole='${userModel.role}';
+</script>

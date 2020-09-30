@@ -9,15 +9,30 @@ import com.cart.Shopping_BackEnd.dto.User;
 public interface UserDAO {
 
 	boolean addUser(User user);
-	
+
 	User getByEmail(String email);
 
 	boolean addAddress(Address address);
 
-	boolean updateCart(Cart cart);
+	// get an address
+	Address getAddress(int addressId);
 	
-	Address getBillingAddress(User user);
+	//alternative for so many queries running in background in console
 	
-	List<Address> listShippingAddress(User user);
+		//to find the billing address for particular user
+		Address getBillingAddress(int userId);
+		
+		//list of shipping address
+		List<Address> listShippingAddress(int userId);
+		
+		/*
+		//to find the billing address for particular user
+		Address getBillingAddress(User user);
+			
+		//list of shipping address
+		List<Address> listShippingAddress(User user);
+		*/
 
+	// updating the new address
+	boolean updateAddress(Address address);
 }

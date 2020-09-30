@@ -1,5 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div class="container">
+<div class="container-fluid">
 
 	<div class="row">
 
@@ -40,7 +40,7 @@
 							<li class="breadcrumb-item"><a href="${contextRoot}/home">Home</a></li>
 							<li class="breadcrumb-item active">Category</li>
 							<li class="breadcrumb-item active">${category.name}</li>
-							</ol>
+						</ol>
 					</c:if>
 
 
@@ -51,40 +51,50 @@
 
 				<div class="col-md-12">
 
-					<table id="productListTable"
-						class="table table-striped table-bordered">
+					<div class="container-fluid">
 
-						<thead>
+						<div class="table-responsive">
 
-							<tr>
 
-								<th></th>
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Qty. Available</th>
-								<th></th>
+							<table id="productListTable"
+								class="table table-striped table-bordered">
 
-							</tr>
+								<thead>
 
-						</thead>
+									<tr>
 
-						<tfoot>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qty. Available</th>
+										<th></th>
 
-							<tr>
+									</tr>
 
-								<th></th>
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Price</th>
-								<th>Qty. Available</th>
-								<th></th>
+								</thead>
 
-							</tr>
+								<tfoot>
 
-						</tfoot>
+									<tr>
 
-					</table>
+										<th></th>
+										<th>Name</th>
+										<th>Brand</th>
+										<th>Price</th>
+										<th>Qty. Available</th>
+										<th></th>
+
+									</tr>
+
+								</tfoot>
+
+							</table>
+
+						</div>
+
+
+					</div>
 
 				</div>
 

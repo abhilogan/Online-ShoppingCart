@@ -91,6 +91,9 @@
 								</label> <label class="radio-inline"> <sf:radiobutton
 										path="role" value="SUPPLIER" /> Supplier
 								</label>
+								<%-- </label> <label class="radio-inline"> <sf:radiobutton
+										path="role" value="ADMIN" /> ADMIN
+								</label> --%>
 							</div>
 						</div>
 

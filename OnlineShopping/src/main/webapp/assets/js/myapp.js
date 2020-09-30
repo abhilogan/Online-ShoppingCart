@@ -16,6 +16,9 @@ $(function() {
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;
 	default:
 		if (menu == "Home")
 			break;
@@ -24,6 +27,18 @@ $(function() {
 		break;
 	}
 
+	// for handling CSRF token
+	var token = $('meta[name="_csrf"]').attr('content');
+	var header = $('meta[name="_csrf_header"]').attr('content');
+	
+	if(token.length > 0 && header.length > 0) {		
+		// set the token header for the ajax request
+		$(document).ajaxSend(function(e, xhr, options) {			
+			xhr.setRequestHeader(header,token);			
+		});				
+	}
+	
+	
 	// code for jquery dataTables..
 	/*
 	 * //create a dataSet
@@ -108,15 +123,31 @@ $(function() {
 											+ data
 											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
 
+									
+									if(userRole == 'ADMIN'){
+										
+										str += '<a href="'
+											+ window.contextRoot
+											+ '/manage/'
+											+ data
+											+ '/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
+										
+									}
+									else{
+									
 									if (row.quantity < 1) {
 										str += '<a href="javascript:void(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 									} else {
-										str += '<a href="'
+										
+											str += '<a href="'
 												+ window.contextRoot
 												+ '/cart/add/'
 												+ data
 												+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
+							
+										
 									} 
+									}
 
 									return str;
 								}
@@ -339,6 +370,97 @@ $(function() {
 		});
 		
 	}
+	
+	//-----------------------------------------------------
+//validation code for login
+	
+	var $loginForm = $('#loginForm');
+	
+	if($loginForm.length){
+		
+		$loginForm.validate({
+			
+			rules :{
+				
+				username : {
+					required : true,
+					email:true
+				},
+				
+				password:{
+					required: true
+				}
+				
+			},
+			messages:{
+				
+				username :{
+					required :'Please add the user name!',
+					email:'Please enter vaild email address'
+				},
+				password:{
+					required :'Please enter valid password!'
+					
+				}
+				
+			},
+			errorElement: 'em',
+			errorPlacement: function(error,element) {
+				error.addClass('help-block');
+				error.insertAfter(element)
+			}
+			
+			
+		});
+		
+	}
+	//------------------------------------------
+	
+	//handling the refresh cart button
+	
+	$('button[name="refreshCart"]').click(function(){
+		
+		//fetch the cart line id
+		var cartLineId = $(this).attr('value');
+		
+		var countElement = $('#count_'+ cartLineId);
+		
+		var originalCount = countElement.attr('value');
+		var currentCount = countElement.val();
+		
+		// work only when the coun has changed
+		
+		if(currentCount !== originalCount){
+			
+			/*console.log("current count : "+ currentCount);
+			console.log("original count : "+ originalCount);*/
+			
+			if(currentCount <1 || currentCount >10){
+				
+				countElement.val(originalCount);
+				bootbox.alert({
+					
+					size : 'medium',
+					title: 'Error',
+					message:'Product count should be minimum 1 and maximun 10!'
+					
+				});
+			}
+			else{
+				var updateUrl = window.contextRoot + '/cart/'+ cartLineId + '/update?count=' + currentCount;
+				
+				//forward it to the controller
+				window.location.href = updateUrl;
+			}
+			
+		}
+		
+		
+	});
+	
+	
+	
+	//-----------------------------------------
 	
 
 });

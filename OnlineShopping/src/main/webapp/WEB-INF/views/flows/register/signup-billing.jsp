@@ -37,7 +37,7 @@
 								<sf:input type="text" path="addressLineTwo" class="form-control"
 									placeholder="Enter Address Line Two" />
 									
-									1<sf:errors path="addressLineTwo" cssClass="help-block" element="em" />
+									<sf:errors path="addressLineTwo" cssClass="help-block" element="em" />
 									
 							</div>
 						</div>

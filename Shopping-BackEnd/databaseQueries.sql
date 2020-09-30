@@ -23,7 +23,7 @@ CREATE TABLE user_detail(
 	last_name VARCHAR(50),
 	role VARCHAR(50),
 	enabled BOOLEAN,
-	password VARCHAR(50),
+	password VARCHAR(60),
 	email VARCHAR(100),
 	contact_number VARCHAR(15),
 	CONSTRAINT pk_user_id PRIMARY KEY(id) 
@@ -31,15 +31,15 @@ CREATE TABLE user_detail(
 
 INSERT INTO user_detail
 (first_name,last_name,role,enabled,password,email,contact_number)
-VALUES ('Pranay','Singh','ADMIN','true','admin','ps@gmail.com','9806871458');
+VALUES ('Pranay','Singh','USER','true','$2b$10$MqGs9O/4a2HVlENtLNISZ.J1muFtxF1yNwdlY.BNCi4CYL3kunkJO','ps@gmail.com','9806871458');
 
 INSERT INTO user_detail
 (first_name,last_name,role,enabled,password,email,contact_number)
-VALUES ('Abhishek','Verma','SUPPLIER','true','12345','av@gmail.com','9806854731');
+VALUES ('Abhishek','Verma','ADMIN','true','$2b$10$cVcMlGjVng6zj7GgpRyj6.ab8WBPG7VSIw.YMu0NPmDqGJz6Fm4y','av@gmail.com','8770192009');
 
 INSERT INTO user_detail
 (first_name,last_name,role,enabled,password,email,contact_number)
-VALUES ('Ashutosh','Bishnoi','SUPPLIER','true','12345','ab@gmail.com','9806546213');
+VALUES ('Ashutosh','Bishnoi','SUPPLIER','true','$2b$10$9tn/CNuh95oAI9DO4kv0ne7EPJQQ1DPV9wsmTVgro08Q2i3/bxQK','ab@gmail.com','9806546213');
 
 
 CREATE TABLE product(

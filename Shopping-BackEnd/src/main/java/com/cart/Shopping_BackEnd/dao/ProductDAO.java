@@ -23,4 +23,6 @@ public interface ProductDAO {
 
 	List<Product> getLatestActiveProducts(int count);
 
+	
+	List<Product> getProductsByParam(String param, int count);
 }

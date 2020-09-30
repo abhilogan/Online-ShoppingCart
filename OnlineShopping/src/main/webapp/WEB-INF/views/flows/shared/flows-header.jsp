@@ -54,7 +54,7 @@
 	<div class="wrapper">
 
 		<!-- Navigation -->
-<%@include file="flows-navbar.jsp" %>
+<%@include file="flows-error.jsp" %>
 
 
 		<!-- Page Content -->
